@@ -7,8 +7,8 @@
                 <a href="<?= base_url() ?>states">
                     <div class="card card-icon mb-4">
                         <div class="card-body text-center">
-                            <span class="fa fa-globe"></span>
-                            <p class="text-muted mt-2 mb-2">Total Cities</p>
+                            <span class="fa fa-user"></span>
+                            <p class="text-muted mt-2 mb-2">Total Users</p>
                             <p class="text-primary text-24 line-height-1 m-0"><?= $total_cities ?></p>
                         </div>
                     </div>

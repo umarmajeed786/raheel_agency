@@ -38,7 +38,7 @@ class Portal extends CI_Controller {
     }
 
     public function index() {
-        $data["page_title"] = "UTraders";
+        $data["page_title"] = "Raheel Agency";
         $data['main_view'] = "portal/login_view";
         $this->load->view('portal/login', $data);
     }
@@ -47,7 +47,7 @@ class Portal extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if (!$this->form_validation->run()) {
-            $data["page_title"] = "UTraders";
+            $data["page_title"] = "Raheel Agency";
             $this->load->view('portal', $data);
         } else {
             $email = $this->input->post('email');
@@ -77,7 +77,7 @@ class Portal extends CI_Controller {
     }
 
     public function forgot_password() {
-        $data["page_title"] = "UTraders";
+        $data["page_title"] = "Raheel Agency";
         $data['main_view'] = "portal/forgot_password_view";
         $this->load->view('portal/forgot_password_view', $data);
     }
@@ -86,13 +86,13 @@ class Portal extends CI_Controller {
         $email = $this->input->post('email');
         $this->load->model('portal_model');
         if ($secret = $this->portal_model->user_forgot_password($email)) {
-            $htmlContent = '<h1>UTraders Reset Password Request</h1>';
+            $htmlContent = '<h1>Raheel Agency Reset Password Request</h1>';
             $htmlContent .= '<p>Click on the link below to reset your password.</p>';
             $htmlContent .= '<p><a href="' . base_url('user') . '/reset-password/' . $secret . '">Reset Password</a></p>';
 
             $this->email->to($this->input->post('email'));
-            $this->email->from(EMAIL_FROM_SMTP, 'UTraders');
-            $this->email->subject('UTraders Reset Password Request');
+            $this->email->from(EMAIL_FROM_SMTP, 'Raheel Agency');
+            $this->email->subject('Raheel Agency Reset Password Request');
             $this->email->message($htmlContent);
             $this->email->send();
             $this->session->set_flashdata('signup_success', 'Reset password link has been sent. Check your inbox.');
@@ -181,7 +181,7 @@ class Portal extends CI_Controller {
     public function dashboard() {
         $data['page_title'] = "Dashboard";
         $data['main_view'] = "portal/dashboard";
-        $data['total_cities'] = $this->db->count_all_results('city');
+        $data['total_cities'] = $this->db->count_all_results('users');
         $this->load->view('portal/layout', $data);
     }
 

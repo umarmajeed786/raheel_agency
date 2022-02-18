@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title><?= $page_title ?> - UTraders</title>
+        <title><?= $page_title ?> - Raheel Agency</title>
         <!--<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">-->
         <link rel="stylesheet" href="<?= base_url('assets') ?>/styles/vendor/datatables.min.css">
         <link rel="stylesheet" href="<?= base_url('assets') ?>/styles/css/style.css">
@@ -159,7 +159,7 @@
                         <div class="d-flex align-items-center">
                             <img class="logo" src="<?= base_url('assets') ?>/images/logo.png" alt="">
                             <div>
-                                <p class="m-0">&copy; <?= date('Y') ?> UTraders.</p>
+                                <p class="m-0">&copy; <?= date('Y') ?> Raheel Agency.</p>
                                 <p class="m-0">All rights reserved</p>
                             </div>
                         </div>
