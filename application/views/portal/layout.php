@@ -96,6 +96,16 @@
                                 <div class="triangle"></div>
                             </li>
                             <?php
+                            endif;
+                        if (check_route('employee', 'get')):
+                            ?>
+                            <li class="nav-item <?= active_menu('employee') ?>">
+                                <a class="nav-item-hold" href="<?= base_url('employee') ?>">
+                                    <span class="nav-text"><span class="fa fa-user-tie"></span> Employee</span>
+                                </a>
+                                <div class="triangle"></div>
+                            </li>
+                            <?php
                         endif;
                         if (check_route('user-roles', 'get')):
                             ?>

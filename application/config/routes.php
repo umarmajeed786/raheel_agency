@@ -21,6 +21,7 @@ $route['account']['GET'] = "portal/account";
 $route['account']['POST'] = "portal/account_save";
 $route['dashboard'] = "portal/dashboard";
 $route['users'] = "portal/users_list";
+$route['employee'] = "portal/employee_list";
 $route['forgot-password']['GET'] = "portal/forgot_password";
 $route['forgot-password']['POST'] = "portal/forgot_password_send";
 $route['reset-password/(:any)']['GET'] = "portal/reset_password/$1";

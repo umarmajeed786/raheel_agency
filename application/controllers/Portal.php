@@ -182,6 +182,7 @@ class Portal extends CI_Controller {
         $data['page_title'] = "Dashboard";
         $data['main_view'] = "portal/dashboard";
         $data['total_cities'] = $this->db->count_all_results('users');
+        $data['total_employee'] = $this->db->count_all_results('employee');
         $this->load->view('portal/layout', $data);
     }
 
@@ -311,6 +312,14 @@ class Portal extends CI_Controller {
         $data['user_roles'] = $this->db->order_by('created_at', 'ASC')->get('user_roles')->result();
         $data['search'] = $this->input->get('name');
         $data['main_view'] = "portal/users";
+        $this->load->view('portal/layout', $data);
+    }
+    public function employee_list() {
+        $data['page_title'] = "Employee List";
+        $result = $this->portal_model->get_all_employee();
+        $data['employees'] = $this->paginator->paginate($result, ['base_url' => 'portal/employee']);
+        $data['search'] = $this->input->get('name');
+        $data['main_view'] = "portal/employee";
         $this->load->view('portal/layout', $data);
     }
 

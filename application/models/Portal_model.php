@@ -225,6 +225,17 @@ class Portal_model extends CI_model {
         $this->db->join('user_roles', 'users.user_role_id = user_roles.user_role_id', 'left');
         return $this->db->order_by('users.id', 'ASC');
     }
+    public function get_all_employee() {
+        if ($this->input->get('name')) {
+            $this->db->like('employee.surname', $this->input->get('name'));
+            $this->db->like('employee.firstname', $this->input->get('name'));
+            $this->db->or_like('employee.lastname', $this->input->get('name'));
+            $this->db->or_like('employee.email', $this->input->get('name'));
+        }
+        $this->db->select('employee.*');
+        $this->db->from('employee');
+        return $this->db->order_by('employee.id', 'ASC');
+    }
 
     public function add_user_save() {
         $options = ['cost' => 10];
