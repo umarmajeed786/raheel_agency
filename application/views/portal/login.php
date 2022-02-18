@@ -52,6 +52,9 @@
                                 <div class="mt-3 text-center">
                                     <a href="<?= base_url('forgot-password') ?>" class="text-muted"><u>Forgot Password?</u></a>
                                 </div>
+                                <div class="mt-3 text-center">
+                                    <a href="https://register.raheel.agency/" class="text-muted"><u>Register as Employee</u></a>
+                                </div>
                             </div>
                         </div>
                     </div>
