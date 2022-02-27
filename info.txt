@@ -1,0 +1,8 @@
+http://raheel.agency/cpanel
+cPanel username	raheunzn
+cPanel password	EynK59um2k0I
+
+
+ftp.raheel.agency
+username	raheunzn
+password	EynK59um2k0I
