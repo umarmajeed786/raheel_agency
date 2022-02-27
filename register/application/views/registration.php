@@ -62,7 +62,7 @@
                                                 
                                             </div>
                                         </div>
-                                        <ul
+                                        <ul>
                                         <li> 
                                                 <a href="#about" data-toggle="tab"> 
                                                     <div class="icon-circle">
