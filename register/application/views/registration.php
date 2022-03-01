@@ -33,7 +33,7 @@
         <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
         <link href="<?= base_url('assets') ?>/css/themify-icons.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
         <style>
             @import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt|Shadows+Into+Light|Cedarville+Cursive');
             .sig1 {            
@@ -53,21 +53,40 @@
                                 <form action="<?= base_url() ?>portal/add_employee_registration" method="post" enctype="multipart/form-data">
                                     <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          --> 
                                     <div class="wizard-header text-center">
+                                        <?php if ($flashmsg = $this->session->flashdata('success_message')) { ?>
+                                            <div class="alert alert-success" role="alert">
+                                                <strong class="text-capitalize"><?= $flashmsg ?></strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <?php
+                                        }
+                                        if ($flashmsg = $this->session->flashdata('error_message')) {
+                                            ?>
+                                            <div class="alert alert-warning" role="alert">
+                                                <strong class="text-capitalize"><?= $flashmsg ?></strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                        <?php }
+                                        ?>
                                         <h3 class="wizard-title">Employee Enrolment Form</h3>
                                         <p class="category">This information will let us know more about you.</p>
                                     </div>
                                     <div class="wizard-navigation">
                                         <div class="progress-with-circle">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 21%;">
-                                                
+
                                             </div>
                                         </div>
                                         <ul>
-                                        <li> 
+                                            <li> 
                                                 <a href="#about" data-toggle="tab"> 
                                                     <div class="icon-circle">
                                                         <i class="ti-user">
-                                                            
+
                                                         </i>
                                                     </div>
                                                     Personal Details
@@ -134,10 +153,10 @@
                                                         <label>First Name <small>(required)</small></label>
                                                         <input name="firstname" type="text" class="form-control" placeholder="Andrew...">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Last Name <small>(required)</small></label>
-                                                        <input name="lastname" type="text" class="form-control" placeholder="Smith...">
-                                                    </div>
+                                                    <!--                                                    <div class="form-group">
+                                                                                                            <label>Last Name <small>(required)</small></label>
+                                                                                                            <input name="lastname" type="text" class="form-control" placeholder="Smith...">
+                                                                                                        </div>-->
                                                 </div>
                                                 <div class="col-sm-6 ">
                                                     <div class="form-group">
@@ -193,8 +212,12 @@
                                                                 <th colspan="2">
                                                                     <input name="school_name[]" type="text" class="form-control" placeholder="Institute name" require>
                                                                 </th>
-                                                                <td><input name="school_from[]" type="text" class="form-control datepicker" > </td>
-                                                                <td> <input name="school_from[]" type="text" class="form-control datepicker" ></td>
+                                                                <td>
+                                                                    <input name="school_from[]" type="text" class="form-control datepicker" placeholder="From">
+                                                                </td>
+                                                                <td>
+                                                                    <input name="school_to[]" type="text" class="form-control datepicker" placeholder="To">
+                                                                </td>
                                                                 <td colspan="3"> 
                                                                     <input name="degree[]" type="text" class="form-control" placeholder="e.g. GCSE’s" >
                                                                 </td>
@@ -207,10 +230,10 @@
                                                                     <input name="school_name[]" type="text" class="form-control" placeholder="Institute name" require>
                                                                 </th>
                                                                 <td>
-                                                                    <input name="school_from[]" type="text" class="form-control datepicker" >
+                                                                    <input name="school_from[]" type="text" class="form-control datepicker" placeholder="From">
                                                                 </td>
-                                                                <td> 
-                                                                    <input name="school_from[]" type="text" class="form-control datepicker" >
+                                                                <td>
+                                                                    <input name="school_to[]" type="text" class="form-control datepicker" placeholder="To">
                                                                 </td>
                                                                 <td colspan="3">
                                                                     <input name="degree[]" type="text" class="form-control" placeholder="e.g. GCSE’s" >
@@ -224,10 +247,10 @@
                                                                     <input name="school_name[]" type="text" class="form-control" placeholder="Institute name" require>
                                                                 </th>
                                                                 <td>
-                                                                    <input name="school_from[]" type="text" class="form-control datepicker" >
+                                                                    <input name="school_from[]" type="text" class="form-control datepicker" placeholder="From">
                                                                 </td>
                                                                 <td>
-                                                                    <input name="school_from[]" type="text" class="form-control datepicker" >
+                                                                    <input name="school_to[]" type="text" class="form-control datepicker" placeholder="To">
                                                                 </td>
                                                                 <td colspan="3">
                                                                     <input name="degree[]" type="text" class="form-control" placeholder="e.g. GCSE’s" >
@@ -262,19 +285,53 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th colspan="2">
-                                                                    <input name="company_name" type="text" class="form-control" placeholder="Company name" require>
+                                                                    <input name="company_name[]" type="text" class="form-control" placeholder="Company name" require>
                                                                 </th>
                                                                 <td>
-                                                                    <input name="company_from" type="text" class="form-control datepicker" >
+                                                                    <input name="company_from[]" type="text" class="form-control datepicker" placeholder="From">
                                                                 </td>
                                                                 <td>
-                                                                    <input name="company_from" type="text" class="form-control datepicker" >
+                                                                    <input name="company_to[]" type="text" class="form-control datepicker" placeholder="To">
                                                                 </td>
                                                                 <td colspan="3">
-                                                                    <input name="position_held" type="text" class="form-control" placeholder="Position" require>
+                                                                    <input name="position_held[]" type="text" class="form-control" placeholder="Position" require>
                                                                 </td>
                                                                 <td colspan="3">
-                                                                    <input name="reason_for_leaving" type="text" class="form-control" placeholder="Reason for leaving" require>
+                                                                    <input name="reason_for_leaving[]" type="text" class="form-control" placeholder="Reason for leaving" require>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">
+                                                                    <input name="company_name[]" type="text" class="form-control" placeholder="Company name" require>
+                                                                </th>
+                                                                <td>
+                                                                    <input name="company_from[]" type="text" class="form-control datepicker" placeholder="From">
+                                                                </td>
+                                                                <td>
+                                                                    <input name="company_to[]" type="text" class="form-control datepicker" placeholder="To">
+                                                                </td>
+                                                                <td colspan="3">
+                                                                    <input name="position_held[]" type="text" class="form-control" placeholder="Position" require>
+                                                                </td>
+                                                                <td colspan="3">
+                                                                    <input name="reason_for_leaving[]" type="text" class="form-control" placeholder="Reason for leaving" require>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">
+                                                                    <input name="company_name[]" type="text" class="form-control" placeholder="Company name" require>
+                                                                </th>
+                                                                <td>
+                                                                    <input name="company_from[]" type="text" class="form-control datepicker" placeholder="From">
+                                                                </td>
+                                                                <td>
+                                                                    <input name="company_to[]" type="text" class="form-control datepicker" placeholder="To">
+                                                                </td>
+                                                                <td colspan="3">
+                                                                    <input name="position_held[]" type="text" class="form-control" placeholder="Position" require>
+                                                                </td>
+                                                                <td colspan="3">
+                                                                    <input name="reason_for_leaving[]" type="text" class="form-control" placeholder="Reason for leaving" require>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -370,8 +427,8 @@
                                                         intermidiate
                                                         </input>
                                                         <input type="radio"
-                                                        name="language_level"
-                                                        value="expert" >
+                                                               name="language_level"
+                                                               value="expert" >
                                                         Expert
                                                         </input>
                                                     </div>
@@ -386,14 +443,14 @@
                                                     <div class="form-group">
                                                         <label>Are you a member of a Union or Professional Organisation offering Indemnity Insurance? </label>
                                                         <input type="radio"
-                                                        name="union_member"
-                                                        value="yes"
-                                                        checked >
+                                                               name="union_member"
+                                                               value="yes"
+                                                               checked >
                                                         Yes
                                                         </input>
                                                         <input type="radio"
-                                                        name="union_member"
-                                                        value="no" >
+                                                               name="union_member"
+                                                               value="no" >
                                                         No
                                                         </input>
                                                     </div>
@@ -426,7 +483,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>Picture</label>
-                                                        <input type="file" name="picture" class="form-control">
+                                                        <input type="file"  accept="image/*" name="picture" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12">
@@ -465,8 +522,8 @@
     <!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
     <script src="<?= base_url('assets') ?>/js/jquery.validate.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>        
-        $('.datepicker').datepicker({ 
-        format: 'mm/dd/yyyy'       
-    });    </script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy'
+        });</script>
 </html>
